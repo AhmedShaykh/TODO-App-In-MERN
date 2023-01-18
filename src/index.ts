@@ -29,15 +29,9 @@ class Student extends Person {
 };
 
 class Instructor extends Person {
-    salary: number;
-    courses: string[] = [];
+    courses: Course[] = [];
 
-    constructor(name: string, age: number, salary: number) {
-        super(name, age);
-        this.salary = salary;
-    }
-
-    assignCourse(course: string) {
+    assignCourse(course: Course) {
         return this.courses.push(course);
     }
 };
@@ -59,35 +53,52 @@ class Course {
     }
 
     setInstructor(instructor: Instructor) {
-        return this.instructor = instructor;
+        this.instructor = instructor;
+        instructor.assignCourse(this);
+    }
+};
+
+class Department {
+    name: string;
+    courses: Course[] = [];
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    addCourse(course: Course) {
+        this.courses.push(course);
     }
 };
 
 const student1 = new Student("Ahmed", 22, "1234");
-
 const student2 = new Student("Hamzah", 22, "5678");
 
-const instructor1 = new Instructor("Zia", 60, 100000000);
-
-const instructor2 = new Instructor("Adil", 30, 10000000);
+const instructor1 = new Instructor("Zia", 60);
+const instructor2 = new Instructor("Adil", 30);
 
 const course1 = new Course("Course 1", "CNC");
+const course2 = new Course("Course 2", "Web 3");
+
+const depart1 = new Department("JAMStack");
+const depart2 = new Department("Serverless API");
+
 course1.addStudent(student1);
 course1.addStudent(student2);
 
-console.log(course1.students);
-console.log(student1.courses);
+course1.setInstructor(instructor1);
+course2.setInstructor(instructor2);
 
-const course2 = new Course("Course 2", "Web 3");
+depart1.addCourse(course1);
+depart1.addCourse(course2);
 
-// class Department {
-//     name: string;
-//     course: string[] = [];
+depart2.addCourse(course2);
 
-//     constructor(name: string, course: string[]) {
-//         this.name = name;
-//         this.course = course;
-//     }
+// console.log(course1.students);
+// console.log(course1.instructor);
 
-//     addCourse() { }
-// };
+// console.log(student1.courses);
+// console.log(course2);
+
+console.log(depart1);
+console.log(depart2);
