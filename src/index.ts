@@ -1,20 +1,4 @@
 import chalk from "chalk";
-import chalkAnimation from "chalk-animation";
-
-const runAnimation = () => {
-    return new Promise((resolve) => {
-        setTimeout(resolve, 2000);
-    })
-};
-
-async function welcome() {
-    let animation = chalkAnimation.rainbow("Welcome to Student Management System");
-    await runAnimation();
-
-    animation.stop();
-};
-
-await welcome();
 
 class Person {
     name: string;
@@ -32,14 +16,14 @@ class Person {
 
 class Student extends Person {
     rollNumber: string;
-    courses: string[] = [];
+    courses: Course[] = [];
 
     constructor(name: string, age: number, rollNumber: string) {
         super(name, age);
         this.rollNumber = rollNumber;
     }
 
-    registerForCourses(course: string) {
+    registerForCourses(course: Course) {
         return this.courses.push(course);
     }
 };
@@ -70,7 +54,8 @@ class Course {
     }
 
     addStudent(student: Student) {
-        return this.students.push(student);
+        this.students.push(student);
+        student.registerForCourses(this);
     }
 
     setInstructor(instructor: Instructor) {
@@ -91,6 +76,7 @@ course1.addStudent(student1);
 course1.addStudent(student2);
 
 console.log(course1.students);
+console.log(student1.courses);
 
 const course2 = new Course("Course 2", "Web 3");
 
