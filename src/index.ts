@@ -94,11 +94,11 @@ depart1.addCourse(course2);
 
 depart2.addCourse(course2);
 
-// console.log(course1.students);
-// console.log(course1.instructor);
+console.log(chalk.cyan(course1.students));
+console.log(chalk.cyan(course1.instructor));
 
-// console.log(student1.courses);
-// console.log(course2);
+console.log(chalk.cyan(student1.courses));
+console.log(chalk.cyan(course2));
 
-console.log(depart1);
-console.log(depart2);
+console.log(chalk.cyan(depart1));
+console.log(chalk.cyan(depart2));
