@@ -89,16 +89,16 @@ course1.addStudent(student2);
 course1.setInstructor(instructor1);
 course2.setInstructor(instructor2);
 
-depart1.addCourse(course1);
-depart1.addCourse(course2);
+// depart1.addCourse(course1);
+// depart1.addCourse(course2);
 
-depart2.addCourse(course2);
+// depart2.addCourse(course2);
 
-console.log(chalk.cyan(course1.students));
-console.log(chalk.cyan(course1.instructor));
+console.log(chalk.cyan(course1));
+// console.log(chalk.cyan(course1.instructor));
 
-console.log(chalk.cyan(student1.courses));
-console.log(chalk.cyan(course2));
+// console.log(chalk.cyan(student1.courses));
+// console.log(chalk.cyan(course2));
 
-console.log(chalk.cyan(depart1));
-console.log(chalk.cyan(depart2));
+// console.log(chalk.cyan(depart1.courses));
+// console.log(chalk.cyan(depart2));
