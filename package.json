@@ -17,10 +17,6 @@
   },
   "homepage": "https://github.com/AhmedShaykh/TypeScript-Student-Management-System#readme",
   "devDependencies": {
-    "@types/chalk": "^2.2.0",
     "@types/node": "^18.11.18"
-  },
-  "dependencies": {
-    "chalk": "^5.2.0"
   }
 }

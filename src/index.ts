@@ -1,5 +1,3 @@
-import chalk from "chalk";
-
 class Person {
     name: string;
     age: number;
@@ -74,8 +72,8 @@ class Department {
 const student1 = new Student("Ahmed", 22, "1234");
 const student2 = new Student("Hamzah", 22, "5678");
 
-const instructor1 = new Instructor("Zia", 60);
-const instructor2 = new Instructor("Adil", 30);
+const instructor1 = new Instructor("Adil", 30);
+const instructor2 = new Instructor("Zia", 60);
 
 const course1 = new Course("Course 1", "CNC");
 const course2 = new Course("Course 2", "Web 3");
@@ -84,7 +82,9 @@ const depart1 = new Department("JAMStack");
 const depart2 = new Department("Serverless API");
 
 course1.addStudent(student1);
-course1.addStudent(student2);
+
+course2.addStudent(student1);
+course2.addStudent(student2);
 
 course1.setInstructor(instructor1);
 course2.setInstructor(instructor2);
@@ -94,11 +94,5 @@ depart1.addCourse(course2);
 
 depart2.addCourse(course2);
 
-console.log(chalk.cyan(course1.students));
-console.log(chalk.cyan(course1.instructor));
-
-console.log(chalk.cyan(student1.courses));
-console.log(chalk.cyan(course2));
-
-console.log(chalk.cyan(depart1.courses));
-console.log(chalk.cyan(depart2));
+console.log(depart1);
+console.log(depart2);
